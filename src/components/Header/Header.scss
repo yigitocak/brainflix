@@ -13,9 +13,13 @@
 
   @include tablet {
     flex-direction: row;
-    gap: 12.5vw;
+    gap: 20%;
     padding: 2.25rem;
     height: 4vh;
+  }
+
+  @include desktop {
+    gap: 40%;
   }
 
   &__container {
@@ -35,6 +39,10 @@
     width: 120px;
     margin-bottom: 1.25rem;
     margin-top: 1rem;
+
+    @include tablet {
+      width: 20%;
+    }
   }
 
   &__search-bar{
@@ -74,6 +82,7 @@
     @include tablet {
       display: flex;
       gap: 1.5rem;
+      width: 60%;
     }
   }
 
