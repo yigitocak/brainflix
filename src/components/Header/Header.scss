@@ -11,11 +11,23 @@
   align-items: center;
   justify-content: center;
 
+  @include tablet {
+    flex-direction: row;
+    gap: 12.5vw;
+    padding: 2.25rem;
+    height: 4vh;
+  }
+
   &__container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1.25rem;
+
+    @include tablet {
+      margin-bottom: 0;
+      width: 60%;
+    }
   }
 
   &__logo {
@@ -43,6 +55,14 @@
     line-height: $mobile-other-height;
     font-weight: $mobile-other-weight;
 
+    @include tablet {
+      padding-left: 45px;
+      background-position: 15px;
+      font-size: $general-other-size;
+      line-height: $general-other-height;
+      font-weight: $general-other-weight;
+    }
+
     &::placeholder {
       color: black;
     }
@@ -50,6 +70,11 @@
 
   &__form {
     width: 100%;
+
+    @include tablet {
+      display: flex;
+      gap: 1.5rem;
+    }
   }
 
   &__avatar {
@@ -60,6 +85,24 @@
     background-image: url("../../assets/images/Mohan-muruge.jpg");
     background-size: cover;
     display: inline-block;
+
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--tablet{
+      display: none;
+      margin-left: 0;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    @include tablet {
+    }
   }
 
   &__button {
@@ -77,12 +120,21 @@
     background: $primary-blue;
     color: $primary-white;
 
+    @include tablet {
+      height: 5.6vh;
+      margin-top: 0.05rem;
+      width: 40%;
 
-    &-image {
-      position: absolute;
-      left: 1rem;
-      top: 30%;
-      height: 1.25rem;
+      font-size: $general-other-size;
+      line-height: $general-other-height;
+      font-weight: $general-other-weight;
     }
+  }
+
+  &__button-image {
+    position: absolute;
+    left: 1rem;
+    top: 30%;
+    height: 1.25rem;
   }
 }
