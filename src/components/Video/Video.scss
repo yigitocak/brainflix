@@ -1,0 +1,71 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.video {
+
+  &__content {
+    height: 45.3vh;
+    width: 100%;
+    background-color: $secondary-black;
+
+  }
+
+  &__container {
+    margin: 2rem;
+  }
+
+  &__title {
+    font-size: 3.3rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: $primary-black;
+  }
+
+  &__info {
+    border-top: $secondary-mercury 2px solid;
+    border-bottom: $secondary-mercury 2px solid;
+    color: $primary-silver;
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__channel {
+    color: $secondary-black;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    width: 50%;
+  }
+
+  &__views, &__date, &__likes {
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  &__views{
+    margin-top: -1rem;
+  }
+
+  &__date, &__likes {
+    margin-top: 0.3rem;
+  }
+
+  &__info-image{
+    height: 30px;
+    padding-left: 2rem;
+    margin-right: 1rem;
+  }
+
+  &__description {
+    padding: 0 2rem;
+    font-size: 1.65rem;
+    letter-spacing: 0.01rem;
+    line-height: 2.3rem;
+  }
+}
+
