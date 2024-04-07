@@ -1,0 +1,85 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.comment {
+
+  &__form {
+    border-bottom: $secondary-mercury 2px solid;
+    margin-bottom: 1.5rem;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+  }
+
+  &__avatar {
+    min-width: 80px;
+    min-height: 80px;
+    height: 100%;
+    margin-top: 3.7rem;
+    border-radius: 50%;
+    background-image: url(../../assets/images/Mohan-muruge.jpg);
+    background-position: 15% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__box{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    flex: 1;
+    position: relative;
+  }
+
+  &__label {
+    padding: 1rem 0 0.7rem 0;
+    color: $primary-silver;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+    font-size: 1.5rem;
+  }
+
+  &__add {
+    padding: 1.5rem 1.5rem;
+    resize: none;
+    min-height: 36px;
+    height: 17.5vh;
+    border-radius: 8px;
+    background-color: $secondary-white;
+    border: 2px solid $secondary-mercury;
+    margin-bottom: 2.25rem;
+    font-family: "primary-font", serif, sans-serif;
+    font-size: 1.68rem;
+
+    &::placeholder{
+      color: $secondary-black;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: block;
+    height: 9vh;
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: $mobile-other-weight;
+    background: $primary-blue;
+    color: $primary-white;
+    margin-bottom: 2.5rem;
+  }
+
+  &__button-image {
+    position: absolute;
+    left: 1rem;
+    top: 25%;
+    height: 4.5vh;
+  }
+}
