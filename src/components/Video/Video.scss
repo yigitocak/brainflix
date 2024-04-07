@@ -5,6 +5,15 @@
 
 .video {
 
+  &__box {
+    @include desktop {
+      width: 65.3%;
+      border-right: $secondary-mercury 1px solid;
+      padding-top: 2rem;
+      margin-top: -2rem;
+    }
+  }
+
   &__content {
     height: 45.3vh;
     width: 100%;
@@ -12,6 +21,10 @@
 
     @include tablet {
       height: 75vh;
+    }
+
+    @include desktop {
+      height: 67vh;
     }
   }
 
@@ -21,6 +34,11 @@
     @include tablet {
       margin-left: 4rem;
       margin-right: 3rem;
+    }
+
+    @include desktop {
+      margin-left: 9.5rem;
+      margin-right: 0;
     }
   }
 
@@ -33,6 +51,10 @@
     @include tablet {
       font-size: 3.2rem;
       margin-bottom: 0;
+    }
+
+    @include desktop {
+      font-size: 2.3rem;
     }
   }
 
@@ -50,6 +72,11 @@
       justify-content: center;
       padding: 2rem 0 1rem 0;
     }
+
+    @include desktop {
+      padding: 1rem 0 0.5rem 0;
+      border-bottom: $secondary-mercury 1px solid;
+    }
   }
 
   &__channel {
@@ -64,6 +91,10 @@
       width: 25%;
       font-size: 1.35rem;
       margin-bottom: 0;
+    }
+
+    @include desktop {
+      font-size: 1rem;
     }
   }
 
@@ -80,12 +111,18 @@
 
   &__views{
     margin-top: -1rem;
+
     @include tablet {
       order: 3;
       margin-top: 0;
       font-size: 1.2rem;
       position: relative;
       left: 6.5rem;
+    }
+
+    @include desktop {
+      font-size: 0.9rem;
+      left: 5.5rem;
     }
   }
 
@@ -99,6 +136,11 @@
       margin-top: 0;
       font-size: 1.2rem;
     }
+
+    @include desktop {
+      font-size: 0.9rem;
+      width: 23%;
+    }
   }
 
   &__date {
@@ -106,6 +148,11 @@
       order: 2;
       font-size: 1.15rem;
       position: relative;
+      left: -1rem;
+    }
+
+    @include desktop {
+      font-size: 0.9rem;
       left: -1rem;
     }
   }
@@ -117,8 +164,13 @@
 
     @include tablet {
       height: 25px;
-      padding-left: 11rem;
+      padding-left: 5.5rem;
       margin-right: 0.65rem;
+    }
+
+    @include desktop {
+      height: 17px;
+      padding-left: 5.5rem;
     }
   }
 
@@ -131,6 +183,14 @@
     @include tablet {
       padding: 0 4rem;
       font-size: 1.38rem;
+    }
+
+    @include  desktop {
+      padding-left: 9.5rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.0052rem;
+      line-height: 1.7rem;
+      padding-right: 3rem;
     }
   }
 }
