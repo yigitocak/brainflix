@@ -3,6 +3,10 @@ import logo from "../../assets/logo/BrainFlix-logo.svg"
 import upload from "../../assets/icons/upload.svg"
 
 const Header = () => {
+    function handleSubmit(e){
+        e.preventDefault()
+    }
+
     return (
         <header className='header'>
             <img
@@ -10,8 +14,13 @@ const Header = () => {
                 alt="BrainFlix Logo"
                 className='header__logo'
             />
-            <form className="header__form">
-                <div className="header__container">
+            <form
+                onSubmit={handleSubmit}
+                className="header__form"
+            >
+                <div
+                    className="header__container"
+                >
                     <input
                         type="text"
                         placeholder="Search"
@@ -25,7 +34,13 @@ const Header = () => {
                 <button
                     type="submit"
                     className="header__button"
-                ><img src={upload} alt="upload icon" className="header__button-image" />UPLOAD
+                >
+                    <img
+                        src={upload}
+                        alt="upload icon"
+                        className="header__button-image"
+                    />
+                    UPLOAD
                 </button>
                 <div
                     className="header__avatar header__avatar--tablet"

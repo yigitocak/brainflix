@@ -1,15 +1,17 @@
 import "./NextVideosItem.scss"
 
-function NextVideosItem({ id}){
-    console.log(id)
+function NextVideosItem({ image, id, channel , title, changeVideo }){
+
+
    return (
        <li
+           onClick={() => changeVideo(id)}
            className="next-video__item"
        >
            <img
                className="next-video__image"
                alt="sum"
-               src={id.image}
+               src={image}
            />
            <div
                className="next-video__container"
@@ -17,11 +19,11 @@ function NextVideosItem({ id}){
                <h4
                    className="next-video__title"
                >
-                   {id.title}</h4>
+                   {title}</h4>
                <span
                    className="next-video__channel"
                >
-               {id.channel}
+               {channel}
            </span>
            </div>
        </li>
