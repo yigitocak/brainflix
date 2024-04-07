@@ -1,3 +1,8 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
 .next-video{
 
   &__item{
@@ -9,6 +14,11 @@
     width: 210px;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+
+    @include tablet {
+      width: 180px;
+      margin-bottom: 2.5rem;
+    }
   }
 
   &__container {
@@ -20,10 +30,19 @@
     font-size: 1.75rem;
     font-weight: 600;
     height: 5vh;
+
+    @include tablet {
+      font-size: 1.35rem;
+      width: 23vw;
+    }
   }
 
   &__channel {
     font-size: 1.7rem;
     margin: 0;
+
+    @include tablet {
+      font-size: 1.35rem;
+    }
   }
 }
