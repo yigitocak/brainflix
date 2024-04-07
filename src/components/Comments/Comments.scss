@@ -7,9 +7,17 @@
 .comment {
   padding: 0 2rem;
 
+  @include tablet {
+    padding: 0 3rem;
+  }
+
   &__count {
     margin-top: 2rem;
     font-size: 1.75rem;
     font-weight: 600;
+
+    @include tablet {
+      font-size: 1.35rem;
+    }
   }
 }

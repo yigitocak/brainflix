@@ -8,6 +8,10 @@
   &__form {
     border-bottom: $secondary-mercury 2px solid;
     margin-bottom: 1.5rem;
+
+    @include tablet {
+      margin-bottom: 2rem;
+    }
   }
 
   &__container {
@@ -25,6 +29,11 @@
     background-position: 15% 50%;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @include tablet {
+      min-width: 65px;
+      min-height: 65px;
+    }
   }
 
   &__box{
@@ -33,6 +42,10 @@
     margin-left: 2rem;
     flex: 1;
     position: relative;
+
+    @include tablet {
+      display: flex;
+    }
   }
 
   &__label {
@@ -41,6 +54,10 @@
     font-weight: 600;
     letter-spacing: 0.04rem;
     font-size: 1.5rem;
+
+    @include tablet {
+      font-size: 1.15rem;
+    }
   }
 
   &__add {
@@ -54,6 +71,14 @@
     margin-bottom: 2.25rem;
     font-family: "primary-font", serif, sans-serif;
     font-size: 1.68rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+      min-height: 30px;
+      height: 2vh;
+      padding: 1rem 1.25rem;
+      width: 68%;
+    }
 
     &::placeholder{
       color: $secondary-black;
@@ -74,6 +99,15 @@
     background: $primary-blue;
     color: $primary-white;
     margin-bottom: 2.5rem;
+
+    @include tablet {
+      width: 24%;
+      position: absolute;
+      top: 3.15rem;
+      height: 7.7vh;
+      right: 0;
+      font-size: 1.2rem;
+    }
   }
 
   &__button-image {
@@ -81,5 +115,10 @@
     left: 1rem;
     top: 25%;
     height: 4.5vh;
+
+    @include tablet {
+      top: 30%;
+      height: 3.5vh;
+    }
   }
 }
