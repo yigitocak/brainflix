@@ -2,8 +2,13 @@ import commentIcon from "../../assets/icons/add_comment.svg"
 import "./CommentForm.scss"
 
 function CommentForm(){
+    function handleSubmit(e){
+        e.preventDefault()
+    }
+
     return(
         <form
+            onSubmit={handleSubmit}
             className="comment__form"
         >
             <div

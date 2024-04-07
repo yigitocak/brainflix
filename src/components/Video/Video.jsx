@@ -2,14 +2,14 @@ import "./Video.scss"
 import viewIcon from "../../assets/icons/views.svg"
 import likesIcon from "../../assets/icons/likes.svg"
 
-const Video = ({ videosData }) => {
-    console.log(videosData)
+const Video = ({ currentVideo }) => {
+
     return (
         <section className="video">
             <video
                 className="video__content"
                 controls
-                poster={videosData[0].image}
+                poster={currentVideo.image}
             >
             </video>
             <div
@@ -18,7 +18,7 @@ const Video = ({ videosData }) => {
                 <h1
                     className="video__title"
                 >
-                    {videosData[0].title}
+                    {currentVideo.title}
                 </h1>
                 <div
                     className="video__info"
@@ -26,7 +26,7 @@ const Video = ({ videosData }) => {
                     <h2
                         className="video__channel"
                     >
-                        By {videosData[0].channel}
+                        By {currentVideo.channel}
                     </h2>
                     <div
                         className="video__views"
@@ -36,13 +36,13 @@ const Video = ({ videosData }) => {
                             alt="views icon"
                             className="video__info-image"
                         />
-                        <span>{videosData[0].views}</span>
+                        <span>{currentVideo.views}</span>
                     </div>
 
                     <span
                         className="video__date"
                     >
-                    {new Date(videosData[0].timestamp).toLocaleDateString()}
+                    {new Date(currentVideo.timestamp).toLocaleDateString()}
                     </span>
 
                     <div
@@ -53,14 +53,14 @@ const Video = ({ videosData }) => {
                             alt="likes icon"
                             className="video__info-image"
                         />
-                        <span>{videosData[0].likes}</span>
+                        <span>{currentVideo.likes}</span>
                     </div>
                 </div>
             </div>
             <p
                 className="video__description"
             >
-                {videosData[0].description}
+                {currentVideo.description}
             </p>
         </section>
     )

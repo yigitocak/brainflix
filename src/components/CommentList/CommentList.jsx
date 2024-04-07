@@ -1,14 +1,12 @@
 import CommentItem from "../CommentItem/CommentItem"
 import './CommentList.scss'
 
-function CommentList({ videosData }){
+const CommentList = ({ videoComments }) => {
     return (
         <ul
             className="comment__list"
         >
-            {videosData[0].comments.map((comment, index) => (
-                <div key={index}><CommentItem id={index} comment={comment} /></div>
-            ))}
+            {videoComments.map((comment, index) => <CommentItem id={index} comment={comment} key={index}/>)}
         </ul>
     )
 }

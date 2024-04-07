@@ -1,7 +1,8 @@
 import NextVideosList from "../NextVideosList/NextVideosList";
 import "./NextVideos.scss"
 
-function NextVideos({ nextVideos }){
+function NextVideos({ changeVideo, filteredVideos }){
+
     return(
         <section
             className="next-video"
@@ -10,7 +11,7 @@ function NextVideos({ nextVideos }){
                 className="next-video__header"
             >
                 NEXT VIDEOS</h3>
-            <NextVideosList nextVideos={nextVideos} />
+            <NextVideosList nextVideos={filteredVideos} changeVideo={changeVideo}/>
         </section>
     )
 }
