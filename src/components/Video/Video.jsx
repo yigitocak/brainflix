@@ -13,55 +13,59 @@ const Video = ({ currentVideo }) => {
             >
             </video>
             <div
-                className="video__container"
+                className="video__box"
             >
-                <h1
-                    className="video__title"
-                >
-                    {currentVideo.title}
-                </h1>
                 <div
-                    className="video__info"
+                    className="video__container"
                 >
-                    <h2
-                        className="video__channel"
+                    <h1
+                        className="video__title"
                     >
-                        By {currentVideo.channel}
-                    </h2>
+                        {currentVideo.title}
+                    </h1>
                     <div
-                        className="video__views"
+                        className="video__info"
                     >
-                        <img
-                            src={viewIcon}
-                            alt="views icon"
-                            className="video__info-image"
-                        />
-                        <span>{currentVideo.views}</span>
-                    </div>
+                        <h2
+                            className="video__channel"
+                        >
+                            By {currentVideo.channel}
+                        </h2>
+                        <div
+                            className="video__views"
+                        >
+                            <img
+                                src={viewIcon}
+                                alt="views icon"
+                                className="video__info-image"
+                            />
+                            <span>{currentVideo.views}</span>
+                        </div>
 
-                    <span
-                        className="video__date"
-                    >
-                    {new Date(currentVideo.timestamp).toLocaleDateString()}
-                    </span>
+                        <span
+                            className="video__date"
+                        >
+                        {new Date(currentVideo.timestamp).toLocaleDateString()}
+                        </span>
 
-                    <div
-                        className="video__likes"
-                    >
-                        <img
-                            src={likesIcon}
-                            alt="likes icon"
-                            className="video__info-image"
-                        />
-                        <span>{currentVideo.likes}</span>
+                        <div
+                            className="video__likes"
+                        >
+                            <img
+                                src={likesIcon}
+                                alt="likes icon"
+                                className="video__info-image"
+                            />
+                            <span>{currentVideo.likes}</span>
+                        </div>
                     </div>
                 </div>
+                <p
+                    className="video__description"
+                >
+                    {currentVideo.description}
+                </p>
             </div>
-            <p
-                className="video__description"
-            >
-                {currentVideo.description}
-            </p>
         </section>
     )
 }
