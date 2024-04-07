@@ -25,7 +25,7 @@ const Header = () => {
                 <button
                     type="submit"
                     className="header__button"
-                ><img src={upload} alt="upload icon" className="header__button-image"></img>UPLOAD
+                ><img src={upload} alt="upload icon" className="header__button-image" />UPLOAD
                 </button>
                 <div
                     className="header__avatar header__avatar--tablet"
