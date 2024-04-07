@@ -7,7 +7,7 @@ function CommentList({ videosData }){
             className="comment__list"
         >
             {videosData[0].comments.map((comment, index) => (
-                <CommentItem key={index} comment={comment} />
+                <div key={index}><CommentItem id={index} comment={comment} /></div>
             ))}
         </ul>
     )
