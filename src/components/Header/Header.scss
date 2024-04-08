@@ -1,0 +1,44 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.header {
+  padding: 2rem;
+  height: 32vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 16%;
+    padding: 2.25rem;
+    height: 4vh;
+  }
+
+  @include desktop {
+    gap: 39%;
+    padding-left: 9rem;
+    padding-right: 9rem;
+    height: 1vh;
+  }
+
+
+  &__logo {
+    height: 75px;
+    width: 240px;
+    margin-top: -1.5rem;
+    margin-bottom: 1.25rem;
+
+    @include tablet {
+      margin-top: 1rem;
+      width: 180px;
+    }
+
+    @include desktop {
+      width: 135px;
+    }
+  }
+}

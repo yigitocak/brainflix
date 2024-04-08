@@ -1,0 +1,68 @@
+// Color variables
+$primary-black: #323232;
+$primary-blue: #0095FF;
+$primary-silver: #AFAFAF;
+$primary-white: #FFFFFF;
+
+$secondary-black: #000000;
+$secondary-blue: #0065AF;
+$secondary-mercury: #E1E1E1;
+$secondary-white: #FAFAFA;
+
+$invalid-input: #D22D2D;
+
+// Mobile paddings
+$mobile-before-headlines: 1.5rem;
+$mobile-after-headlines: 1rem;
+$mobile-between-components: 1rem;
+
+// Mobile text styles
+$mobile-page-header-size: 1.5rem;
+$mobile-page-header-height: 2rem;
+$mobile-page-header-weight: 700;
+
+$mobile-section-header-size: 0.75rem;
+$mobile-section-header-height: 1.25rem;
+$mobile-section-header-weight: 700;
+
+$mobile-subheader-size: 0.813rem;
+$mobile-subheader-height: 1.125rem;
+$mobile-subheader-weight: 700;
+
+$mobile-body-copy-size: 0.813rem;
+$mobile-body-copy-height: 1.125rem;
+$mobile-body-copy-weight: 400;
+
+$mobile-other-size: 0.625rem;
+$mobile-other-height: 1.25rem;
+$mobile-other-weight: 700;
+
+// Desktop & Tablet paddings
+$general-before-headlines: 2.25rem;
+$general-after-headlines: 1.5rem;
+$general-between-components: 1.5rem;
+
+// Desktop & Tablet text styles
+$general-page-header-size: 2.063rem;
+$general-page-header-height: 2.75rem;
+$general-page-header-weight: 700;
+
+$general-section-header-size: 0.75rem;
+$general-section-header-height: 1.25rem;
+$general-section-header-weight: 700;
+
+$general-subheader-size: 0.875rem;
+$general-subheader-height: 1.375rem;
+$general-subheader-weight: 700;
+
+$general-body-copy-size: 0.875rem;
+$general-body-copy-height: 1.375rem;
+$general-body-copy-weight: 400;
+
+$general-other-size: 0.75rem;
+$general-other-height: 1.25rem;
+$general-other-weight: 700;
+
+// Break Points
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;

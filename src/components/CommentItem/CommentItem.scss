@@ -1,0 +1,101 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.comment {
+
+  &__item {
+    list-style: none;
+    position: relative;
+    border-bottom: $secondary-mercury 2px solid;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      margin-bottom: 2rem;
+    }
+
+    @include desktop {
+      border-top: $secondary-mercury 1px solid;
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-top: 1.5rem;
+    }
+  }
+
+  &__user {
+    width: 36px;
+    height: 36px;
+    background-color: $primary-black;
+    border-radius: 50%;
+    margin-top: 2.5rem;
+  }
+
+  &__name-user {
+    font-weight: 600;
+    font-size: 1.7rem;
+    display: block;
+    margin-left: 6.2rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1rem;
+    }
+  }
+
+  &__time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $primary-silver;
+    font-size: 1.7rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1.02rem;
+      margin-right: 1rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__user-avatar {
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    background-color: $secondary-mercury;
+    position: absolute;
+    top: -0.2rem;
+    left: 0;
+
+    @include tablet {
+      min-width: 65px;
+      min-height: 65px;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__paragraph {
+    display: inline-block;
+    font-size: 1.7rem;
+    margin-left: 6.2rem;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
+    margin-top: 1.3rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1.02rem;
+      line-height: 1.75rem;
+      padding-right: 0.5rem;
+    }
+  }
+}

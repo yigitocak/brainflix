@@ -1,0 +1,12 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "fonts" as *;
+
+*, *:after, *:before {
+  box-sizing: content-box;
+}
+
+body {
+  margin: 0;
+  font-family: primary-font, serif, sans-serif;
+}
