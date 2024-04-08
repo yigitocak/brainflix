@@ -16,11 +16,13 @@ function Main(){
     const filteredVideos = nextVideos.filter( video =>video.id !== currentVideo.id)
 
     return(
-        <>
+        <main
+            className="main"
+        >
             <Video currentVideo={currentVideo} />
             <Comments videoComments={currentVideo.comments} />
             <NextVideos changeVideo={changeVideo} filteredVideos={filteredVideos}/>
-        </>
+        </main>
     )
 }
 
