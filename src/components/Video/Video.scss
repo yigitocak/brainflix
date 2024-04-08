@@ -7,10 +7,9 @@
 
   &__box {
     @include desktop {
-      width: 65.3%;
-      border-right: $secondary-mercury 1px solid;
       padding-top: 2rem;
       margin-top: -2rem;
+      margin-right: 34.5vw;
     }
   }
 
@@ -191,6 +190,7 @@
       letter-spacing: 0.0052rem;
       line-height: 1.7rem;
       padding-right: 3rem;
+      margin-bottom: 0;
     }
   }
 }

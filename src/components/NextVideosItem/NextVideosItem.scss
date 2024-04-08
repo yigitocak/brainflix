@@ -19,10 +19,18 @@
       width: 180px;
       margin-bottom: 2.5rem;
     }
+
+    @include desktop {
+      width: 130px;
+    }
   }
 
   &__container {
     margin-left: 2rem;
+
+    @include desktop {
+      margin-left: 1rem;
+    }
   }
 
   &__title {
@@ -35,6 +43,12 @@
       font-size: 1.35rem;
       width: 23vw;
     }
+
+    @include  desktop {
+      font-size: 1rem;
+      width: 15vw;
+      height: 3.5vh;
+    }
   }
 
   &__channel {
@@ -43,6 +57,10 @@
 
     @include tablet {
       font-size: 1.35rem;
+    }
+
+    @include desktop {
+      font-size: 1rem;
     }
   }
 }
