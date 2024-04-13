@@ -120,6 +120,11 @@
     font-weight: $mobile-other-weight;
     background: $primary-blue;
     color: $primary-white;
+    transition: background-color 0.25s;
+
+    &:hover{
+      background-color: $secondary-blue;
+    }
 
     @include tablet {
       height: 7.5vh;
