@@ -22,8 +22,6 @@ function CommentForm({ id, onAddComment }){
         }
     };
 
-
-
     return(
         <form
             className="comment__form"

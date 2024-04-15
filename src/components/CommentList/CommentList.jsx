@@ -1,7 +1,7 @@
 import CommentItem from "../CommentItem/CommentItem"
 import './CommentList.scss'
 
-const CommentList = ({comments}) => {
+const CommentList = ({comments, videoId, onDeleteComment}) => {
     return (
         <ul
             className="comment__list"
@@ -10,7 +10,15 @@ const CommentList = ({comments}) => {
                 .sort((a,b) => {return b.timestamp - a.timestamp})
                 .map(comment => {
                 return (
-                <CommentItem key={comment.id} name={comment.name} id={comment.id} comment={comment.comment} timestamp={comment.timestamp}/>
+                <CommentItem
+                    key={comment.id}
+                    name={comment.name}
+                    id={comment.id}
+                    comment={comment.comment}
+                    timestamp={comment.timestamp}
+                    videoId={videoId}
+                    onDeleteComment={onDeleteComment}
+                />
                 )
             })}
         </ul>

@@ -10,6 +10,11 @@ function Comments({ comments, id }) {
         setCommentRender(comments);
     }, [comments]);
 
+    const handleDeleteComment = (commentId) => {
+        setCommentRender(prevComments => prevComments.filter(comment => comment.id !== commentId));
+    };
+
+
     const handleAddComment = (newComment) => {
         setCommentRender(prevComments => [newComment, ...prevComments]);  // Prepend new comment to maintain order
     };
@@ -20,10 +25,10 @@ function Comments({ comments, id }) {
             <h3
                 className="comment__count"
             >
-                {comments.length} Comments
+                {commentRender.length} Comments
             </h3>
             <CommentForm id={id} onAddComment={handleAddComment}/>
-            <CommentList comments={commentRender}/>
+            <CommentList comments={commentRender} videoId={id} onDeleteComment={handleDeleteComment}/>
         </section>
     )
 }
