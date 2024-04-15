@@ -88,7 +88,7 @@
     background-color: $secondary-white;
     border: 2px solid $secondary-mercury;
     margin-bottom: 2.25rem;
-    font-family: "primary-font", serif, sans-serif;
+    font-family: "primary-font", "serif", "Times New Roman";
     font-size: 1.68rem;
 
     @include tablet {
