@@ -37,7 +37,7 @@ function Main({ nextVideos }) {
     return (
         <main className="main">
             <Video video={displayedVideo} />
-            <Comments comments={displayedVideo ? displayedVideo.comments : []} />
+            <Comments comments={displayedVideo ? displayedVideo.comments : []} id={videoId || defaultVideoId} />
             <NextVideos nextVideos={nextVideos} videoId={videoId || defaultVideoId} />
         </main>
     );

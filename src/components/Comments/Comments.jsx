@@ -1,8 +1,18 @@
 import CommentForm from "../CommentForm/CommentForm"
 import "./Comments.scss"
 import CommentList from "../CommentList/CommentList"
+import {useState, useEffect} from "react";
 
-function Comments({ comments }) {
+function Comments({ comments, id }) {
+    const [commentRender, setCommentRender] = useState([]);
+
+    useEffect(() => {
+        setCommentRender(comments);
+    }, [comments]);
+
+    const handleAddComment = (newComment) => {
+        setCommentRender(prevComments => [newComment, ...prevComments]);  // Prepend new comment to maintain order
+    };
     return !comments ? <div>Loading...</div> : (
         <section
                 className="comment"
@@ -12,8 +22,8 @@ function Comments({ comments }) {
             >
                 {comments.length} Comments
             </h3>
-            <CommentForm />
-            <CommentList comments={comments} />
+            <CommentForm id={id} onAddComment={handleAddComment}/>
+            <CommentList comments={commentRender}/>
         </section>
     )
 }

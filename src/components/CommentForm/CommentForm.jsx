@@ -1,11 +1,33 @@
 import commentIcon from "../../assets/icons/add_comment.svg"
 import "./CommentForm.scss"
+import {useState} from "react";
+import axios from "axios";
+import {API_KEY, baseUrl} from "../../utils/utils";
 
-function CommentForm(){
+function CommentForm({ id, onAddComment }){
+    const [comment, setComment] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = {
+            name: "Yigit Ocak",
+            comment: comment
+        };
+        try {
+            const response = await axios.post(`${baseUrl}videos/${id}/comments?api_key=${API_KEY}`, data);
+            onAddComment(response.data);
+            setComment("");
+        } catch (err) {
+            console.error("Failed to post comment:", err);
+        }
+    };
+
+
 
     return(
         <form
             className="comment__form"
+            onSubmit={handleSubmit}
         >
             <div
                 className="comment__container"
@@ -24,7 +46,8 @@ function CommentForm(){
                     </label>
                     <textarea
                         className="comment__add"
-                        name="addedComment"
+                        value={comment}
+                        onChange={e => setComment(e.target.value)}
                         id="comment__add"
                         placeholder="Add a new comment"
                     >

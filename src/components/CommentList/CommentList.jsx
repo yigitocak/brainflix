@@ -6,7 +6,9 @@ const CommentList = ({comments}) => {
         <ul
             className="comment__list"
         >
-            {comments.map(comment => {
+            {comments
+                .sort((a,b) => {return b.timestamp - a.timestamp})
+                .map(comment => {
                 return (
                 <CommentItem key={comment.id} name={comment.name} id={comment.id} comment={comment.comment} timestamp={comment.timestamp}/>
                 )
