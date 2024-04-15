@@ -1,7 +1,9 @@
 import upload from "../../assets/icons/upload.svg";
 import "./HeaderForm.scss"
+import { useNavigate } from "react-router-dom"
 
 const HeaderForm = ({ handleSubmit }) => {
+    const navigate = useNavigate()
     return (
         <form
             onSubmit={handleSubmit}
@@ -23,6 +25,7 @@ const HeaderForm = ({ handleSubmit }) => {
             <button
                 type="submit"
                 className="header__button"
+                onClick={() => navigate("/upload")}
             >
                 <img
                     src={upload}

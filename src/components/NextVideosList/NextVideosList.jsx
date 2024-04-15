@@ -1,24 +1,25 @@
 import NextVideosItem from "../NextVideosItem/NextVideosItem";
 import "./NextVideosList.scss"
 
-function NextVideosList({ nextVideos, changeVideo }){
-
+function NextVideosList({ nextVideos ,videoId }){
     return (
         <ul
             className="next-video__list"
         >
-            {nextVideos.map(video => {
+            {nextVideos
+                .filter(video => video.id !== videoId)
+                .map(video => {
                 return (
                     <NextVideosItem
-                        image={video.image}
-                        id={video.id}
-                        channel={video.channel}
-                        title={video.title}
                         key={video.id}
-                        changeVideo={changeVideo}
+                        id={video.id}
+                        title={video.title}
+                        channel={video.channel}
+                        src={video.image}
+                        videoId={videoId}
                     />
-                )
-            })}
+                )})
+            }
         </ul>
     )
 }

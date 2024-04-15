@@ -2,14 +2,13 @@ import "./Video.scss"
 import viewIcon from "../../assets/icons/views.svg"
 import likesIcon from "../../assets/icons/likes.svg"
 
-const Video = ({ currentVideo }) => {
-
-    return (
+const Video = ({video}) => {
+    return !video ? <h1>Loading</h1> :(
         <section className="video">
             <video
                 className="video__content"
                 controls
-                poster={currentVideo.image}
+                poster={video.image}
             >
             </video>
             <div
@@ -21,7 +20,7 @@ const Video = ({ currentVideo }) => {
                     <h1
                         className="video__title"
                     >
-                        {currentVideo.title}
+                        {video.title}
                     </h1>
                     <div
                         className="video__info"
@@ -29,7 +28,7 @@ const Video = ({ currentVideo }) => {
                         <h2
                             className="video__channel"
                         >
-                            By {currentVideo.channel}
+                            By {video.channel}
                         </h2>
                         <div
                             className="video__views"
@@ -39,13 +38,13 @@ const Video = ({ currentVideo }) => {
                                 alt="views icon"
                                 className="video__info-image"
                             />
-                            <span>{currentVideo.views}</span>
+                            <span>{video.views}</span>
                         </div>
 
                         <span
                             className="video__date"
                         >
-                        {new Date(currentVideo.timestamp).toLocaleDateString()}
+                        {new Date(video.timestamp).toLocaleDateString()}
                         </span>
 
                         <div
@@ -56,14 +55,14 @@ const Video = ({ currentVideo }) => {
                                 alt="likes icon"
                                 className="video__info-image"
                             />
-                            <span>{currentVideo.likes}</span>
+                            <span>{video.likes}</span>
                         </div>
                     </div>
                 </div>
                 <p
                     className="video__description"
                 >
-                    {currentVideo.description}
+                    {video.description}
                 </p>
             </div>
         </section>
