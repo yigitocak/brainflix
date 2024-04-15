@@ -1,25 +1,31 @@
 import commentIcon from "../../assets/icons/add_comment.svg"
 import "./CommentForm.scss"
-import { useState } from "react"
+import {useState} from "react";
+import axios from "axios";
+import {API_KEY, baseUrl} from "../../utils/utils";
 
-function CommentForm(){
-    const [isEmpty, setIsEmpty] = useState(false);
+function CommentForm({ id, onAddComment }){
+    const [comment, setComment] = useState("");
 
-    function handleSubmit(e){
-        e.preventDefault()
-        const commentInput = e.target.addedComment.value
-
-        if(commentInput.trim() === ""){
-            setIsEmpty(true);
-        } else {
-            setIsEmpty(false);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = {
+            name: "Yigit Ocak",
+            comment: comment
+        };
+        try {
+            const response = await axios.post(`${baseUrl}videos/${id}/comments?api_key=${API_KEY}`, data);
+            onAddComment(response.data);
+            setComment("");
+        } catch (err) {
+            console.error("Failed to post comment:", err);
         }
-    }
+    };
 
     return(
         <form
-            onSubmit={handleSubmit}
             className="comment__form"
+            onSubmit={handleSubmit}
         >
             <div
                 className="comment__container"
@@ -37,8 +43,9 @@ function CommentForm(){
                         JOIN THE CONVERSATION
                     </label>
                     <textarea
-                        className={isEmpty ? "comment__add-invalid" : "comment__add"}
-                        name="addedComment"
+                        className="comment__add"
+                        value={comment}
+                        onChange={e => setComment(e.target.value)}
                         id="comment__add"
                         placeholder="Add a new comment"
                     >

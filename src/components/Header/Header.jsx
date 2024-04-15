@@ -9,11 +9,16 @@ const Header = () => {
 
     return (
         <header className='header'>
-            <img
+            <a
+                href="/"
+                className="header__logo-link"
+            >
+                <img
                 src={logo}
                 alt="BrainFlix Logo"
                 className='header__logo'
             />
+            </a>
             <HeaderForm handleSubmit={handleSubmit} />
         </header>
     )

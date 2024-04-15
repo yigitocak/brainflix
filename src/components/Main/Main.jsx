@@ -1,29 +1,46 @@
-import {useState} from "react";
-import Video from "../Video/Video"
-import videosData from "../../data/video-details.json"
-import Comments from "../Comments/Comments"
-import NextVideos from "../NextVideos/NextVideos"
-import nextVideos from "../../data/videos.json";
+import Video from "../Video/Video";
+import Comments from "../Comments/Comments";
+import NextVideos from "../NextVideos/NextVideos";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { API_KEY, baseUrl } from "../../utils/utils";
+import { useParams } from "react-router-dom";
 
-function Main(){
-    const [currentVideo, setCurrentVideo] = useState(videosData[0])
+function Main({ nextVideos }) {
+    const { videoId } = useParams();
+    const [displayedVideo, setDisplayedVideo] = useState(null);
+    const [defaultVideoId, setDefaultVideoId] = useState(videoId);
 
-    function changeVideo(id){
-        const newVideo = videosData.find(video => video.id === id)
-        setCurrentVideo(newVideo)
+    useEffect(() => {
+        if (!videoId && nextVideos && nextVideos.length > 0) {
+            setDefaultVideoId(nextVideos[0].id);
+        }
+    }, [nextVideos, videoId]);
+
+    useEffect(() => {
+        const videoIdToFetch = videoId || defaultVideoId;
+        if (videoIdToFetch) {
+            const fetchVideo = async () => {
+                const response = await axios.get(`${baseUrl}videos/${videoIdToFetch}?api_key=${API_KEY}`);
+                if (response.data) {
+                    setDisplayedVideo(response.data);
+                }
+            };
+            fetchVideo();
+        }
+    }, [defaultVideoId, videoId]);
+
+    if (!nextVideos || nextVideos.length === 0) {
+        return <div>Loading...</div>;
     }
 
-    const filteredVideos = nextVideos.filter( video =>video.id !== currentVideo.id)
-
-    return(
-        <main
-            className="main"
-        >
-            <Video currentVideo={currentVideo} />
-            <Comments videoComments={currentVideo.comments} />
-            <NextVideos changeVideo={changeVideo} filteredVideos={filteredVideos}/>
+    return (
+        <main className="main">
+            <Video video={displayedVideo} />
+            <Comments comments={displayedVideo ? displayedVideo.comments : []} id={videoId || defaultVideoId} />
+            <NextVideos nextVideos={nextVideos} videoId={videoId || defaultVideoId} />
         </main>
-    )
+    );
 }
 
-export default Main
+export default Main;
