@@ -1,6 +1,6 @@
 import './CommentItem.scss'
 
-function CommentItem({ comment }){
+function CommentItem({ name, comment, timestamp }){
     return (
         <li
             className="comment__item"
@@ -12,17 +12,17 @@ function CommentItem({ comment }){
             <span
                 className="comment__name-user"
             >
-                {comment.name}
+                {name}
             </span>
             <span
                 className="comment__time"
             >
-                {new Date(comment.timestamp).toLocaleDateString()}
+                {new Date(timestamp).toLocaleDateString()}
             </span>
             <p
                 className="comment__paragraph"
             >
-                {comment.comment}
+                {comment}
             </p>
         </li>
     )
