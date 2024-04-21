@@ -2,7 +2,7 @@ import "./Header.scss"
 import logo from "../../assets/logo/BrainFlix-logo.svg"
 import HeaderForm from "../HeaderForm/HeaderForm";
 
-const Header = () => {
+const Header = ({ reset }) => {
     function handleSubmit(e){
         e.preventDefault()
     }
@@ -19,7 +19,7 @@ const Header = () => {
                 className='header__logo'
             />
             </a>
-            <HeaderForm handleSubmit={handleSubmit} />
+            <HeaderForm handleSubmit={handleSubmit} reset={reset}/>
         </header>
     )
 }
