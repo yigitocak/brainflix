@@ -13,18 +13,19 @@
   }
 
   &__image{
-    width: 210px;
+    max-width: 27vw;
+    width: 100%;
     border-radius: 8px;
     margin-bottom: 1.5rem;
     cursor: pointer;
 
     @include tablet {
-      width: 180px;
+      max-width: 27vw;
       margin-bottom: 2.5rem;
     }
 
     @include desktop {
-      width: 130px;
+      max-width: 30vw;
     }
   }
 

@@ -6,6 +6,7 @@ const Video = ({video}) => {
     return !video ? <h1>Loading</h1> :(
         <section className="video">
             <video
+                key={video.id}
                 className="video__content"
                 controls
                 poster={video.image}

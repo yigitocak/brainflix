@@ -9,6 +9,6 @@ export const HomePage = ({ nextVideos }) => {
     }
 
     return (
-        <Main nextVideos={nextVideos} videoId={videoId} />
+        <Main nextVideos={nextVideos} videoId={videoId}/>
     );
 };

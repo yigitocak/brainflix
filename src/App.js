@@ -13,11 +13,11 @@ function App() {
 
     useEffect(() => {
         const fetchNextVideos = async () => {
-            const response = await axios.get(`${baseUrl}videos?api_key=${API_KEY}`);
+            const response = await axios.get(`${baseUrl}videos?api_key=${API_KEY}`)
             if (response.data) {
-                setNextVideos(response.data);
+                setNextVideos(response.data)
             } else {
-                console.error("No data received from fetch");
+                console.error("No data received from fetch")
             }
         };
         fetchNextVideos();
@@ -26,11 +26,11 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <Header />
+                <Header reset={setNextVideos}/>
                 <Routes>
                     <Route path="/" element={<HomePage nextVideos={nextVideos} />} />
-                    <Route path="/video/:videoId" element={<HomePage nextVideos={nextVideos} />} />
-                    <Route path="/upload" element={<UploadPage />} />
+                    <Route path="/video/:videoId" element={<HomePage nextVideos={nextVideos}/>} />
+                    <Route path="/upload" element={<UploadPage reRender={setNextVideos}/>} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>

@@ -6,9 +6,19 @@ import {API_KEY, baseUrl} from "../../utils/utils";
 
 function CommentForm({ id, onAddComment }){
     const [comment, setComment] = useState("");
+    const [isValid, setIsValid] = useState(true)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(comment === ""){
+            setIsValid(false)
+            return
+        }
+        else {
+            setIsValid(true)
+        }
+
         const data = {
             name: "Yigit Ocak",
             comment: comment
@@ -20,6 +30,8 @@ function CommentForm({ id, onAddComment }){
         } catch (err) {
             console.error("Failed to post comment:", err);
         }
+
+
     };
 
     return(
@@ -43,7 +55,7 @@ function CommentForm({ id, onAddComment }){
                         JOIN THE CONVERSATION
                     </label>
                     <textarea
-                        className="comment__add"
+                        className={isValid ? "comment__add" : "comment__add-invalid"}
                         value={comment}
                         onChange={e => setComment(e.target.value)}
                         id="comment__add"

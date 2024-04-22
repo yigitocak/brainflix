@@ -105,6 +105,14 @@
     right: 0.5rem;
     bottom: 1.5rem;
 
+    @include tablet {
+      height: 3.2vh;
+    }
+
+    @include desktop {
+      height: 2.4vh;
+    }
+
     &:hover {
       cursor: pointer;
     }
