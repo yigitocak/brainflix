@@ -6,7 +6,7 @@ import axios from "axios";
 import { API_KEY, baseUrl } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 
-function Main({ nextVideos }) {
+function Main({ nextVideos}) {
     const { videoId } = useParams();
     const [displayedVideo, setDisplayedVideo] = useState(null);
     const [defaultVideoId, setDefaultVideoId] = useState(videoId);

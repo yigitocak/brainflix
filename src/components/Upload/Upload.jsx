@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./Upload.scss";
-import thumbnail from "../../assets/images/Upload-video-preview.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import publish from "../../assets/icons/publish.svg";
-// import axios from "axios";
-// import { API_KEY, baseUrl } from "../../utils/utils";
+import axios from "axios";
+import { API_KEY, baseUrl } from "../../utils/utils";
 
-export const Upload = () => {
+export const Upload = ({ reRender }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+
+    const [isTitleValid, setIsTitleValid] = useState(true)
+    const [isDescriptonValid, setIsDescriptionValid] = useState(true)
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -18,28 +20,40 @@ export const Upload = () => {
         setDescription(event.target.value);
     };
 
-    // real post request
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const videoData = {
-    //         title: title,
-    //         description: description
-    //     };
-    //     const endpoint = `${baseUrl}videos?api_key=${API_KEY}`;
-    //
-    //     try {
-    //         const response = await axios.post(endpoint, videoData);
-    //         console.log('Response:', response.data);
-    //         alert('Video uploaded successfully!');
-    //     } catch (error) {
-    //         console.error('Error posting data:', error);
-    //         alert('Failed to upload video.');
-    //     }
-    // };
+    const navigate = useNavigate()
 
-    const fakeSubmit = () => {
-        alert("Video uploaded.")
-    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if(title === ""){
+            setIsTitleValid(false)
+        }
+        else {
+            setIsTitleValid(true)
+        }
+
+        if(description === ""){
+            setIsDescriptionValid(false)
+            return
+        }
+        else {
+            setIsDescriptionValid(true)
+        }
+
+        const videoData = {
+            title: title,
+            description: description
+        };
+        const endpoint = `${baseUrl}videos?api_key=${API_KEY}`;
+
+        try {
+            const response = await axios.post(endpoint, videoData);
+            reRender(response.data)
+            navigate(`/video/${response.data[response.data.length - 1].id}`)
+        } catch (error) {
+            console.error('Error posting data:', error);
+        }
+    };
 
     return (
         <section className="upload">
@@ -47,45 +61,46 @@ export const Upload = () => {
             <div className="upload__box">
                 <div className="upload__wrapper-thumbnail">
                     <h2 className="upload__thumbnail-title">VIDEO THUMBNAIL</h2>
-                    <img className="upload__thumbnail" src={thumbnail} alt="a person getting ready to run" />
+                    <img className="upload__thumbnail" src="http://localhost:5050/images/kazanindibi.jpg" alt="a very generous and gentleman waiter" />
                 </div>
                 <div className="upload__wrapper-info">
-                    <form>
+                    <form
+                        onSubmit={handleSubmit}
+                    >
                         <label className="upload__info-title">TITLE YOUR VIDEO</label>
                         <input
-                            className="upload__title"
+                            className={isTitleValid ? "upload__title" : "upload__title-invalid"}
                             placeholder="Add a title to your video"
                             value={title}
                             onChange={handleTitleChange}
                         />
                         <label className="upload__info-title">ADD A VIDEO DESCRIPTION</label>
                         <textarea
-                            className="upload__description"
+                            className={isDescriptonValid ? "upload__description" : "upload__description-invalid"}
                             placeholder="Add a description to your video"
                             value={description}
                             onChange={handleDescriptionChange}
                         />
-                        <Link
-                            to="/"
-                            onClick={fakeSubmit}
-                            className="upload__button-link"
+                        <button
+                            type="submit"
+                            className="upload__button"
                         >
-                            <button
-                                type="submit"
-                                className="upload__button"
-                            >
-                                <img
-                                    src={publish}
-                                    alt="upload icon"
-                                    className="upload__button-image"
-                                />
-                                PUBLISH
-                            </button>
-                        </Link>
+                            <img
+                                src={publish}
+                                alt="upload icon"
+                                className="upload__button-image"
+                            />
+                            PUBLISH
+                        </button>
                     </form>
                 </div>
             </div>
-            <Link to="/" className="upload__cancel"><span>CANCEL</span></Link>
+            <Link
+                to="/"
+                className="upload__cancel"
+            >
+                <span>CANCEL</span>
+            </Link>
         </section>
     );
 };

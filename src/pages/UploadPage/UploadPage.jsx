@@ -1,7 +1,7 @@
 import {Upload} from "../../components/Upload/Upload";
 
-export const UploadPage = () => {
+export const UploadPage = ({ reRender }) => {
     return (
-        <Upload />
+        <Upload reRender={reRender}/>
     )
 }
