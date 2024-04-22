@@ -1,6 +1,7 @@
 import "./Header.scss"
 import logo from "../../assets/logo/BrainFlix-logo.svg"
 import HeaderForm from "../HeaderForm/HeaderForm";
+import {Link} from "react-router-dom";
 
 const Header = ({ reset }) => {
     function handleSubmit(e){
@@ -9,8 +10,8 @@ const Header = ({ reset }) => {
 
     return (
         <header className='header'>
-            <a
-                href="/"
+            <Link
+                to="/"
                 className="header__logo-link"
             >
                 <img
@@ -18,7 +19,7 @@ const Header = ({ reset }) => {
                 alt="BrainFlix Logo"
                 className='header__logo'
             />
-            </a>
+            </Link>
             <HeaderForm handleSubmit={handleSubmit} reset={reset}/>
         </header>
     )

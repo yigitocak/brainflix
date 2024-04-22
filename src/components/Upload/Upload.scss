@@ -147,7 +147,7 @@
     }
   }
 
-  &__title, &__title-invalid, &__description {
+  &__title, &__title-invalid, &__description, &__description-invalid {
     padding: 1.25rem 1.25rem;
     min-height: 36px;
     border-radius: 8px;
@@ -179,6 +179,10 @@
     }
   }
 
+  &__title-invalid {
+    border: 2px solid $invalid-input;
+  }
+
   &__description {
     resize: none;
     height: 23vh;
@@ -191,6 +195,11 @@
     @include desktop {
       height: 11.5vh;
     }
+  }
+
+  &__description-invalid {
+    height: 23vh;
+    border: 2px solid $invalid-input;
   }
 
   &__divider {

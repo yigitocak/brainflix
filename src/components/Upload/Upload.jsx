@@ -9,6 +9,9 @@ export const Upload = ({ reRender }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
+    const [isTitleValid, setIsTitleValid] = useState(true)
+    const [isDescriptonValid, setIsDescriptionValid] = useState(true)
+
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
     };
@@ -21,6 +24,22 @@ export const Upload = ({ reRender }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if(title === ""){
+            setIsTitleValid(false)
+        }
+        else {
+            setIsTitleValid(true)
+        }
+
+        if(description === ""){
+            setIsDescriptionValid(false)
+            return
+        }
+        else {
+            setIsDescriptionValid(true)
+        }
+
         const videoData = {
             title: title,
             description: description
@@ -33,7 +52,6 @@ export const Upload = ({ reRender }) => {
             navigate(`/video/${response.data[response.data.length - 1].id}`)
         } catch (error) {
             console.error('Error posting data:', error);
-            alert('Failed to upload video.');
         }
     };
 
@@ -43,7 +61,7 @@ export const Upload = ({ reRender }) => {
             <div className="upload__box">
                 <div className="upload__wrapper-thumbnail">
                     <h2 className="upload__thumbnail-title">VIDEO THUMBNAIL</h2>
-                    <img className="upload__thumbnail" src="http://localhost:5050/assets/kazanindibi.jpg" alt="a person getting ready to run" />
+                    <img className="upload__thumbnail" src="http://localhost:5050/images/kazanindibi.jpg" alt="a very generous and gentleman waiter" />
                 </div>
                 <div className="upload__wrapper-info">
                     <form
@@ -51,14 +69,14 @@ export const Upload = ({ reRender }) => {
                     >
                         <label className="upload__info-title">TITLE YOUR VIDEO</label>
                         <input
-                            className="upload__title"
+                            className={isTitleValid ? "upload__title" : "upload__title-invalid"}
                             placeholder="Add a title to your video"
                             value={title}
                             onChange={handleTitleChange}
                         />
                         <label className="upload__info-title">ADD A VIDEO DESCRIPTION</label>
                         <textarea
-                            className="upload__description"
+                            className={isDescriptonValid ? "upload__description" : "upload__description-invalid"}
                             placeholder="Add a description to your video"
                             value={description}
                             onChange={handleDescriptionChange}
