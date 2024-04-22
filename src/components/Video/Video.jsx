@@ -10,6 +10,7 @@ const Video = ({video}) => {
                 className="video__content"
                 controls
                 poster={video.image}
+                src={video.video}
             >
             </video>
             <div
